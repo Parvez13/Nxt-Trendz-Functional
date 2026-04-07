@@ -1,22 +1,27 @@
-// MODERN FUNCTIONAL STYLE
-import React, { useState } from 'react';
+import {BrowserRouter, Routes, Route} from 'react-router-dom'
 
-function App() {
-  // We replace this.state with the useState hook
-  const [count, setCount] = useState(0);
+import LoginForm from './components/LoginForm'
+import Home from './components/Home'
+import ProtectedRoute from './components/ProtectedRoute'
+import NotFound from './components/NotFound'
 
-  // We replace class methods with simple functions
-  const handleIncrement = () => {
-    setCount(count + 1);
-  };
+import './App.css'
 
-  // We return the JSX directly (no render() method)
-  return (
-    <div className="App">
-      <h1>{count}</h1>
-      <button onClick={handleIncrement}>Add</button>
-    </div>
-  );
-}
+const App = () => (
+  <BrowserRouter>
+    <Routes>
+      {/* 1. Public Route: Anyone can see the Login page */}
+      <Route path="/login" element={<LoginForm />} />
 
-export default App;
+      {/* 2. Protected Route Group: Only logged-in users can see these */}
+      <Route element={<ProtectedRoute />}>
+        <Route path="/" element={<Home />} />
+      </Route>
+
+      {/* 3. Fallback: If they type a wrong URL */}
+      <Route path="*" element={<NotFound />} />
+    </Routes>
+  </BrowserRouter>
+)
+
+export default App
