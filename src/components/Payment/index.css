@@ -1,9 +1,10 @@
 .payments-container {
   display: flex;
   flex-direction: column;
-  padding: 20px;
+  padding: 30px;
   background-color: #ffffff;
   font-family: 'Roboto';
+  border-radius: 12px;
 }
 
 .payments-heading {
@@ -16,7 +17,6 @@
   color: #475569;
   font-size: 18px;
   font-weight: 500;
-  margin-top: 10px;
 }
 
 .payment-method-inputs {
@@ -31,12 +31,6 @@
   margin-bottom: 15px;
 }
 
-.payment-method-input {
-  width: 18px;
-  height: 18px;
-  cursor: pointer;
-}
-
 .payment-method-label {
   margin-left: 10px;
   font-size: 16px;
@@ -49,22 +43,11 @@
   font-weight: bold;
 }
 
-.disabled-label {
-  color: #cbd5e1;
-  cursor: not-allowed;
-}
-
 .order-details {
   background-color: #f8fafc;
   padding: 15px;
   border-radius: 8px;
-  margin-bottom: 20px;
-}
-
-.order-text {
-  color: #475569;
-  font-size: 16px;
-  margin: 5px 0;
+  margin-bottom: 25px;
 }
 
 .highlight {
@@ -77,11 +60,10 @@
   color: #ffffff;
   border: none;
   border-radius: 6px;
-  height: 40px;
+  height: 45px;
   font-size: 16px;
   font-weight: 500;
   cursor: pointer;
-  transition: background-color 0.3s;
 }
 
 .confirm-order-button:disabled {
@@ -89,16 +71,19 @@
   cursor: not-allowed;
 }
 
-.success-view-container {
+/* Success View Styling */
+.success-view {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 200px;
-  text-align: center;
+  min-height: 200px;
 }
 
 .success-message {
   color: #059669;
   font-size: 20px;
-  font-weight: bold;
+  font-weight: 500;
+  margin-bottom: 30px;
+  text-align: center;
 }
