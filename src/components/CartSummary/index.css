@@ -1,0 +1,79 @@
+.cart-summary-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end; /* Aligns the summary card to the right */
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+
+.cart-summary-card {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 350px; /* Limits the width for a cleaner look */
+}
+
+.cart-items-total-price {
+  font-family: 'Roboto';
+  font-size: 24px;
+  color: #171f46;
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+.cart-items-total-price span {
+  font-weight: bold;
+  font-size: 28px;
+}
+
+.cart-items-count {
+  font-family: 'Roboto';
+  font-size: 16px;
+  color: #475569;
+  margin-bottom: 24px;
+}
+
+/* THE CHECKOUT BUTTON STYLING */
+.checkout-btn {
+  background-color: #0b69ff;
+  color: #ffffff;
+  font-family: 'Roboto';
+  font-size: 16px;
+  font-weight: 500;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 24px;
+  cursor: pointer;
+  outline: none;
+  transition: background-color 0.3s ease;
+  width: 100%; /* Makes the button fill the summary card */
+}
+
+.checkout-btn:hover {
+  background-color: #0957d1;
+}
+
+/* Responsiveness for Mobile */
+@media screen and (max-width: 767px) {
+  .cart-summary-container {
+    align-items: center; /* Centers it on mobile */
+  }
+  
+  .cart-summary-card {
+    max-width: 100%;
+    text-align: center;
+  }
+}
+
+/* Customizing the reactjs-popup overlay */
+.popup-content {
+  border-radius: 12px !important;
+  width: 90% !important;
+  max-width: 450px !important;
+  padding: 0 !important;
+  border: none !important;
+}
+
+.popup-overlay {
+  background: rgba(0, 0, 0, 0.5) !important;
+}

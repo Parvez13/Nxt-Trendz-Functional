@@ -1,6 +1,6 @@
 import {useState, useEffect} from 'react'
 import Cookies from 'js-cookie'
-import Loader from 'react-loader-spinner'
+import {ThreeDots} from 'react-loader-spinner' // Fixed Import
 
 import ProductCard from '../ProductCard'
 import './index.css'
@@ -13,11 +13,9 @@ const apiStatusConstants = {
 }
 
 const PrimeDealsSection = () => {
-  // 1. State Hooks
   const [primeDeals, setPrimeDeals] = useState([])
   const [apiStatus, setApiStatus] = useState(apiStatusConstants.initial)
 
-  // 2. Data Fetching Logic
   const getPrimeDeals = async () => {
     setApiStatus(apiStatusConstants.inProgress)
 
@@ -45,7 +43,7 @@ const PrimeDealsSection = () => {
         }))
         setPrimeDeals(updatedData)
         setApiStatus(apiStatusConstants.success)
-      } else if (response.status === 401) {
+      } else {
         setApiStatus(apiStatusConstants.failure)
       }
     } catch (error) {
@@ -53,12 +51,10 @@ const PrimeDealsSection = () => {
     }
   }
 
-  // 3. Lifecycle replacement
   useEffect(() => {
     getPrimeDeals()
-  }, []) // Empty array means this runs once, like componentDidMount
+  }, []) 
 
-  // 4. Render Helper Functions
   const renderPrimeDealsListView = () => (
     <div>
       <h1 className="primedeals-list-heading">Exclusive Prime Deals</h1>
@@ -79,12 +75,12 @@ const PrimeDealsSection = () => {
   )
 
   const renderLoadingView = () => (
-    <div className="primedeals-loader-container">
-      <Loader type="ThreeDots" color="#0b69ff" height="50" width="50" />
+    <div className="primedeals-loader-container" data-testid="loader">
+      {/* Updated usage of the loader */}
+      <ThreeDots color="#0b69ff" height="50" width="50" />
     </div>
   )
 
-  // 5. Main Render Logic
   switch (apiStatus) {
     case apiStatusConstants.success:
       return renderPrimeDealsListView()
